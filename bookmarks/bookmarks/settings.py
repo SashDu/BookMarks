@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-xe%o^jce&_+l6wx2f!4rorvev+5jk$f_o&z_r62%_4j^yf5sd+'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 
@@ -148,16 +152,16 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 
-SOCIAL_AUTH_FACEBOOK_KEY = '1673935169843212'
-SOCIAL_AUTH_FACEBOOK_SECRET = 'a62e1a2d1d3b1c05d12d44d0bb0f7db5'
+SOCIAL_AUTH_FACEBOOK_KEY = os.getenv('SOCIAL_AUTH_FACEBOOK_KEY')
+SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv('SOCIAL_AUTH_FACEBOOK_SECRET')
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
-SOCIAL_AUTH_TWITTER_KEY = '9XZtFJTEdFWvZiLwpJ2quVXiy'
-SOCIAL_AUTH_TWITTER_SECRET = 'kA6m2iQeFpMigvfHcx1BYvDYrIXzMIfvxgTvN2DVa83RaYZwKy'
+SOCIAL_AUTH_TWITTER_KEY = os.getenv('SOCIAL_AUTH_TWITTER_KEY')
+SOCIAL_AUTH_TWITTER_SECRET = os.getenv('SOCIAL_AUTH_TWITTER_SECRET')
 
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '474523516404-npv2i50gd43561uec7aacihhgm2ae506.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
 
 
 SOCIAL_AUTH_PIPELINE = [
